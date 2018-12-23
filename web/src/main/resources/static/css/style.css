@@ -1,0 +1,23 @@
+/*!
+* Override Bootstrap style.
+*
+* @since: 1.0.0
+* @author xiaofei <https://xiaofei.com>
+*/
+
+.badge {
+  margin-left: auto; 
+}
+
+.hidden { 
+	display: none !important; 
+}
+.bg-inverse{
+    background-color: #ffffff;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-toggler{
+    color:#000000;
+}
+.navbar-inverse .navbar-nav .nav-link{
+    color:#000000;
+}

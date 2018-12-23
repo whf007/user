@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whf.user.dao.mapper.TmCourseMapper">
+  <resultMap id="BaseResultMap" type="com.whf.user.dao.entity.member.TmCourse">
+    <id column="course_id" jdbcType="VARCHAR" property="courseId" />
+    <result column="member_id" jdbcType="VARCHAR" property="memberId" />
+    <result column="course_time" jdbcType="TIMESTAMP" property="courseTime" />
+    <result column="teacher_type" jdbcType="VARCHAR" property="teacherType" />
+    <result column="demo" jdbcType="VARCHAR" property="demo" />
+    <result column="lable" jdbcType="VARCHAR" property="lable" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from member..tm_course
+    where course_id = #{courseId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.whf.user.dao.entity.member.TmCourse">
+    insert into member..tm_course (course_id, member_id, course_time, 
+      teacher_type, demo, lable, 
+      create_time, update_time)
+    values (#{courseId,jdbcType=VARCHAR}, #{memberId,jdbcType=VARCHAR}, #{courseTime,jdbcType=TIMESTAMP}, 
+      #{teacherType,jdbcType=VARCHAR}, #{demo,jdbcType=VARCHAR}, #{lable,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.whf.user.dao.entity.member.TmCourse">
+    update member..tm_course
+    set member_id = #{memberId,jdbcType=VARCHAR},
+      course_time = #{courseTime,jdbcType=TIMESTAMP},
+      teacher_type = #{teacherType,jdbcType=VARCHAR},
+      demo = #{demo,jdbcType=VARCHAR},
+      lable = #{lable,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where course_id = #{courseId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select course_id, member_id, course_time, teacher_type, demo, lable, create_time, 
+    update_time
+    from member..tm_course
+    where course_id = #{courseId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select course_id, member_id, course_time, teacher_type, demo, lable, create_time, 
+    update_time
+    from member..tm_course
+  </select>
+</mapper>

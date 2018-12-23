@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.whf.user.dao.mapper.TmMemberMapper">
+  <resultMap id="BaseResultMap" type="com.whf.user.dao.entity.member.TmMember">
+    <id column="member_id" jdbcType="VARCHAR" property="memberId" />
+    <result column="member_name" jdbcType="VARCHAR" property="memberName" />
+    <result column="type" jdbcType="BIT" property="type" />
+    <result column="pid_id" jdbcType="INTEGER" property="pidId" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="cert_no" jdbcType="VARCHAR" property="certNo" />
+    <result column="teacher_type" jdbcType="VARCHAR" property="teacherType" />
+    <result column="demo" jdbcType="VARCHAR" property="demo" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="alipay" jdbcType="VARCHAR" property="alipay" />
+    <result column="lable" jdbcType="VARCHAR" property="lable" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from member..tm_member
+    where member_id = #{memberId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.whf.user.dao.entity.member.TmMember">
+    insert into member..tm_member (member_id, member_name, `type`, 
+      pid_id, real_name, cert_no, 
+      teacher_type, demo, wechat, 
+      alipay, lable, `password`, 
+      create_time, update_time)
+    values (#{memberId,jdbcType=VARCHAR}, #{memberName,jdbcType=VARCHAR}, #{type,jdbcType=BIT}, 
+      #{pidId,jdbcType=INTEGER}, #{realName,jdbcType=VARCHAR}, #{certNo,jdbcType=VARCHAR}, 
+      #{teacherType,jdbcType=VARCHAR}, #{demo,jdbcType=VARCHAR}, #{wechat,jdbcType=VARCHAR}, 
+      #{alipay,jdbcType=VARCHAR}, #{lable,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.whf.user.dao.entity.member.TmMember">
+    update member..tm_member
+    set member_name = #{memberName,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=BIT},
+      pid_id = #{pidId,jdbcType=INTEGER},
+      real_name = #{realName,jdbcType=VARCHAR},
+      cert_no = #{certNo,jdbcType=VARCHAR},
+      teacher_type = #{teacherType,jdbcType=VARCHAR},
+      demo = #{demo,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      alipay = #{alipay,jdbcType=VARCHAR},
+      lable = #{lable,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where member_id = #{memberId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select member_id, member_name, `type`, pid_id, real_name, cert_no, teacher_type, 
+    demo, wechat, alipay, lable, `password`, create_time, update_time
+    from member..tm_member
+    where member_id = #{memberId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select member_id, member_name, `type`, pid_id, real_name, cert_no, teacher_type, 
+    demo, wechat, alipay, lable, `password`, create_time, update_time
+    from member..tm_member
+  </select>
+</mapper>
