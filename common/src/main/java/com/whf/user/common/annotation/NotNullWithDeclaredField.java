@@ -1,5 +1,6 @@
 package com.whf.user.common.annotation;
 
+import com.whf.user.common.validate.NotNullWithDeclaredFieldConstraint;
 import jodd.vtor.Constraint;
 
 import java.lang.annotation.ElementType;

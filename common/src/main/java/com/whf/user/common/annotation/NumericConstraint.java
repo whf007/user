@@ -1,10 +1,9 @@
 package com.whf.user.common.annotation;
 
-import com.tigerft.otcg.core.common.annotation.Numeric;
 import jodd.vtor.ValidationConstraint;
 import jodd.vtor.ValidationConstraintContext;
 
-import static org.apache.commons.lang.StringUtils.isNumeric;
+import static org.apache.commons.lang3.StringUtils.isNumeric;
 
 /**
  * <p>数值类型<P>

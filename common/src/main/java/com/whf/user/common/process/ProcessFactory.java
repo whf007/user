@@ -9,6 +9,7 @@ import com.whf.user.common.resp.Response;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import java.lang.annotation.Annotation;
@@ -27,6 +28,7 @@ import static org.springframework.core.annotation.AnnotationUtils.getValue;
  * @version $Id: ProcessFactory.java, v 0.1 2017年4月14日 下午4:38:33 caojiayao
  *          Exp $
  */
+@Component
 public class ProcessFactory<RESULT extends Response, REQUEST extends Request> implements ApplicationContextAware {
 
 	private final Map<String, Processor<RESULT, REQUEST>> processors = Maps.newHashMapWithExpectedSize(10);

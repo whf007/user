@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!--加载配置文件，为下面读取数据库信息准备-->
-    <properties resource="../application.properties"/>
+    <properties resource="application.properties"/>
 
     <!--defaultModelType="flat" 大数据字段，不分表 -->
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
@@ -51,9 +51,14 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
 
-        <table catalog="user" schema="user" tableName="user" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+        <table catalog="member" schema="member" tableName="tm_member_identity" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
             <generatedKey column="id" sqlStatement="Mysql" identity="true" />
         </table>
-
+        <table catalog="member" schema="member" tableName="tm_member" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
+        <table catalog="member" schema="member" tableName="tm_course" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
     </context>
 </generatorConfiguration>
