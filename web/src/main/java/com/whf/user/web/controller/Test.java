@@ -8,7 +8,6 @@ import com.whf.user.common.enums.ResponseCode;
 import com.whf.user.common.exception.CommonException;
 import com.whf.user.common.req.Request;
 import com.whf.user.common.resp.Response;
-import com.whf.user.web.health.MyHealthChecker;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
