@@ -89,7 +89,11 @@ public class Test extends AbstractRouter<Request>{
         }
         return sb.toString();
     }
-
+    @RequestMapping(value = "/recv1", method = RequestMethod.GET)
+    @ResponseBody
+    public String ss(){
+        return "ss";
+    }
 
 
 }

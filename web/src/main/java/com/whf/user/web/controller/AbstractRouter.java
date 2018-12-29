@@ -31,7 +31,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 public abstract class AbstractRouter<T extends Request> {
 
     private final Map<String, Class<T>> processClassCache = newHashMap();
-    
+
     @Autowired
     protected ProcessFactory<Response, Request> processFactory;
 
@@ -41,7 +41,7 @@ public abstract class AbstractRouter<T extends Request> {
         final Class<T> clazz = loadProcessClass(service);
         T instantiate = JSON.parseObject(JSON.toJSONString(requstMap), clazz);
         ParamsValidateUtil.validate(instantiate);
-        
+
         Processor<Response, Request> responseRequestProcessor = processFactory.loadProcessor(service);
         verifyLoginWrapper(requstMap, responseRequestProcessor, instantiate);
         responseRequestProcessor.check(instantiate);
